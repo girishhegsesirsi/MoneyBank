@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import moneybank.netbanking.beans.Account;
 import moneybank.netbanking.beans.Kyc;
 import moneybank.netbanking.dao.FileDAO;
 
@@ -21,8 +20,9 @@ private SessionFactory sessionFactory;
 	@Transactional
 	public int fileUpload(Kyc kyc) {
 		 Serializable  kyc_no=sessionFactory.getCurrentSession().save(kyc);
-		 int kyc_id= (int)kyc_no;
-		 return kyc_id;
+		 Integer Int_kyc_id= (Integer)kyc_no;
+		 
+		 return Int_kyc_id.intValue();
 		
 	}
 

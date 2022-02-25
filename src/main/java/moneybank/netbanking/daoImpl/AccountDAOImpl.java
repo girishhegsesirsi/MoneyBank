@@ -42,8 +42,8 @@ private SessionFactory sessionFactory;
 	@Transactional
 	public int createTermDepAccount(TermDepAccount account) {
 		 Serializable  acct_id=sessionFactory.getCurrentSession().save(account);
-		 int account_number= (int)acct_id;
-		 return account_number;
+		 Integer intAcct_id = (Integer)acct_id;
+		 return intAcct_id.intValue();
 	}
 
 	@Override
@@ -125,7 +125,7 @@ private SessionFactory sessionFactory;
 			logger.info("Beneficiary account already exists");
 		}
 		if(key!=null)
-			return loadBeneficiary((int)key);
+			return loadBeneficiary(((Integer)key).intValue());
 	return null;
 		
 	}

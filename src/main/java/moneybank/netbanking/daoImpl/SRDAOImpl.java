@@ -25,7 +25,8 @@ private SessionFactory sessionFactory;
 	@Transactional
 public int save(ServiceRequest sr) {
 	Serializable srnum=	sessionFactory.getCurrentSession().save(sr);
-	return (int)srnum;
+	Integer Int_srnum = (Integer)srnum;
+	return Int_srnum.intValue();
 	}
 
 @Override
